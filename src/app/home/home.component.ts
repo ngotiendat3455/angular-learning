@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subscription } from 'rxjs';
+import { QuizMarkerService } from '../quiz-marker.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +16,7 @@ export class HomeComponent {
   readonly SUBCATEGORY_FIELD = 'subcategory';
   readonly DIFFICULTY_FIELD = 'difficulty';
 
-  // readonly #quizMakerService = inject(QuizMakerService);
+  readonly #quizMakerService = inject(QuizMarkerService);
 
   /** Quiz form */
   form = new FormGroup({
@@ -29,4 +31,22 @@ export class HomeComponent {
      /** Quiz categories loading indicator */
   areQuizCategoriesLoading = false;
 
+
+  subscription = new Subscription();
+
+  constructor() {
+    // Initialize dropdowns
+    this.#initializeDropdowns();
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
+
+  #initializeDropdowns() {
+    this.subscription.add(
+      this.#quizMakerService.initializeQuizCategories().subscribe()
+    );
+  }
 }
