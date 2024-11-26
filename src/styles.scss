@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+// Apply Lexend font family by default
+* {
+    font-family: Lexend;
+  }
+  
+  :root {
+    --white: white;
+    --grey: lightgrey;
+    --black: black;
+    --blue: #87CEEB;
+    --green: #90EE90;
+    --yellow: #F4D738;
+    --red: #FF7A5C;
+    --pink: #FFB2EF;
+    --purple: #A388EE;
+  }
+  
