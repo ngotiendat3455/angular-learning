@@ -15,6 +15,9 @@ export class QuizMarkerService {
   getQuizCategories(): Signal<QuizCategoryModel[]> {
     return this.#stateService.get('quizCategories') as Signal<QuizCategoryModel[]>;
   }
+  areQuizCategoriesLoading(): Signal<boolean> {
+    return this.#stateService.get('areQuizCategoriesLoading') as Signal<boolean>;
+  }
 
     /**
    * Initialize the quiz categories

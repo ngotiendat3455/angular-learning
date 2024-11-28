@@ -12,7 +12,7 @@ $common-width: 16rem;
   $number-of-options: 5;
   $option-height: 2.25rem;
   
-  @include layout.flex($direction: column);
+  // @include layout.flex($direction: column);
   
   background-color: var(--white);
   border: dashed 3px;

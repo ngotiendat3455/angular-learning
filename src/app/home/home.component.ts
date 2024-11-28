@@ -1,12 +1,18 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { QuizMarkerService } from '../quiz-marker.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { QuizAutocompleteComponent } from '../quiz-autocomplete/quiz-autocomplete.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [
+    ReactiveFormsModule,
+    QuizAutocompleteComponent,
+    // QuizSelectComponent,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -29,11 +35,15 @@ export class HomeComponent {
     quizSubcategories = [];
 
      /** Quiz categories loading indicator */
-  areQuizCategoriesLoading = false;
+  areQuizCategoriesLoading = this.#quizMakerService.areQuizCategoriesLoading();
 
 
   subscription = new Subscription();
-
+  /** Quiz categories */
+  quizCategories = computed(() => {
+    const quizCategories = this.#quizMakerService.getQuizCategories();
+    return [...new Set(quizCategories().map(category => category.name))];
+  });
   constructor() {
     // Initialize dropdowns
     this.#initializeDropdowns();
