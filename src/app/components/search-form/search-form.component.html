@@ -1,1 +1,14 @@
-<p>search-form works!</p>
+<section class='section search'>
+    <form class='search-form' onSubmit={handleSubmit}>
+      <div class='form-control'>
+        <label htmlFor='name'>search your favorite cocktail</label>
+        <input
+          #searchInput
+          type='text'
+          name='name'
+          id='name'
+          (input)="searchCocktail()"
+        />
+      </div>
+    </form>
+  </section>

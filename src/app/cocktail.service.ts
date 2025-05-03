@@ -13,9 +13,18 @@ export class CocktailService {
   constructor(private http:HttpClient) {
     effect(() => {
       this.fetchDrinks(this.searchTerm())
+    }, {
+      allowSignalWrites: true
     })  
   }
 
+  getLoading() {
+    return this.loading.asReadonly()
+  }
+
+  getCocktails() {
+    return this.cocktails.asReadonly()
+  }
   private fetchDrinks(term: string) {
     this.loading.set(true);
     this.http.get<any>(this.url + term).subscribe({

@@ -9,6 +9,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { CocktailListComponent } from './components/cocktail-list/cocktail-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoadingComponent } from './components/loading/loading.component';
+import { CocktailComponent } from './components/cocktail/cocktail.component';
 
 
 
@@ -20,12 +23,15 @@ import { CocktailListComponent } from './components/cocktail-list/cocktail-list.
     AboutComponent,
     NavbarComponent,
     SearchFormComponent,
-    CocktailListComponent
+    CocktailListComponent,
+    LoadingComponent,
+    CocktailComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { CocktailService } from '../../cocktail.service';
 
 @Component({
   selector: 'app-search-form',
@@ -7,6 +8,21 @@ import { Component } from '@angular/core';
   templateUrl: './search-form.component.html',
   styleUrl: './search-form.component.scss'
 })
-export class SearchFormComponent {
+export class SearchFormComponent implements AfterViewInit{
+  @ViewChild('searchInput') searchInput!:ElementRef<HTMLInputElement>;
 
+  constructor(private cocktailService: CocktailService) {
+  }
+  ngAfterViewInit(): void {
+      this.searchInput.nativeElement.focus();
+  }
+
+  handleSubmit(event: Event){
+    event.preventDefault();
+  }
+
+  searchCocktail() {
+    const temp = this.searchInput.nativeElement.value;
+    this.cocktailService.setSearchTerm(temp);
+  }
 }
