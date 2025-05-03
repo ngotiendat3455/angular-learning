@@ -1,0 +1,9 @@
+<ng-container *ngFor="let person of people">
+  <div [attr.key]="person.id" class="person">
+    <img [src]="person.image" alt="{{person.name}}" />
+    <div class="info">
+      <h4>{{person.name}}</h4>
+      <p>{{person.age}} years</p>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,18 @@
+<main>
+    <ng-container *ngIf="loading;else toursContent">
+        <app-loading></app-loading>
+    </ng-container>
+    <ng-template #toursContent>
+        <ng-container *ngIf="tours.length === 0; else hasTours">
+            <div class="title">
+                <h2>no tours left</h2>
+                <button class="btn" (click)="fetchTours()">
+                    refresh
+                </button>
+            </div>
+        </ng-container>
+        <ng-template #hasTours>
+            <app-tours />
+        </ng-template>
+    </ng-template>
+</main>

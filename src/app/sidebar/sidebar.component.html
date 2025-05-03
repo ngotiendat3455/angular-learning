@@ -1,0 +1,23 @@
+<div class="sidebar" [ngClass]="{'show-sidebar': isSidebarOpen$ | async}">
+    <div class='sidebar-header'>
+      <img src={logo} class='logo' alt='coding addict' />
+      <button class='close-btn' (click)="closeSidebarModal()">
+        <fa-icon [icon]="faTimes"></fa-icon>
+      </button>
+    </div>
+    <ul class='links'>
+        <li *ngFor="let link of links">
+            <a href="link.url">
+                <fa-icon [icon]="link.icon"></fa-icon>
+                {{link.text}}
+              </a>
+        </li>
+    </ul>
+    <ul class='social-icons'>
+        <li *ngFor="let link of social">
+            <a href="link.url">
+                <fa-icon [icon]="link.icon"></fa-icon>
+            </a>
+          </li>
+    </ul>
+</div>

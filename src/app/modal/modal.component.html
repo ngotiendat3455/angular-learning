@@ -1,0 +1,8 @@
+<div class="modal-overlay" [ngClass]="{'show-modal': isModalBehavor$ | async}">
+    <div class='modal-container'>
+        <h3>modal content</h3>
+        <button class='close-modal-btn' (click)="closeModal()">
+            <fa-icon [icon]="faTimes"></fa-icon>
+        </button>
+    </div>
+</div>

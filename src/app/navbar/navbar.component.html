@@ -1,0 +1,28 @@
+<nav class='nav'>
+    <div class='nav-center'>
+      <div class='nav-header'>
+        <img src={logo} class='nav-logo' alt='' />
+        <button class='btn toggle-btn' (click)="openSidebar()">
+            <fa-icon [icon]="faBars"></fa-icon>
+        </button>
+      </div>
+      <ul class='nav-links'>
+        <li>
+          <button class='link-btn' (mouseenter)="displaySubmenu($event)">
+            products
+          </button>
+        </li>
+        <li>
+          <button class='link-btn' (mouseenter)="displaySubmenu($event)">
+            developers
+          </button>
+        </li>
+        <li>
+          <button class='link-btn' (mouseenter)="displaySubmenu($event)">
+            company
+          </button>
+        </li>
+      </ul>
+      <button class='btn signin-btn'>Sign in</button>
+    </div>
+  </nav>

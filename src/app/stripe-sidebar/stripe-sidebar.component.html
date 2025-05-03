@@ -1,0 +1,18 @@
+<div class="sidebar-wrapper" [ngClass]="{'show': isSidebarOpen$ | async}">
+    <aside class='sidebar'>
+        <button class='close-btn' (click)="closeSidebar()">
+            <fa-icon [icon]="faTimes"></fa-icon>
+        </button>
+        <div className='sidebar-links'>
+            <article *ngFor="let item of sublinks" key={index}>
+                <h4>{{item.page}}</h4>
+                <div class='sidebar-sublinks'>
+                    <a *ngFor="let link of item.links" [href]="link.url">
+                        {{link.icon}}
+                        {{link.label}}
+                      </a>
+                </div>
+              </article>
+        </div>
+      </aside>
+</div>

@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { QuizMarkerService } from '../quiz-marker.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { QuizAutocompleteComponent } from '../quiz-autocomplete/quiz-autocomplete.component';
+import { QuizSelectComponent } from '../quiz-select/quiz-select.component';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { QuizAutocompleteComponent } from '../quiz-autocomplete/quiz-autocomplet
   imports: [
     ReactiveFormsModule,
     QuizAutocompleteComponent,
+    QuizSelectComponent
     // QuizSelectComponent,
   ],
   templateUrl: './home.component.html',

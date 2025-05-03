@@ -1,0 +1,29 @@
+<ng-container *ngIf="state().cart.length == 0;else tabContent">
+    <section class='cart'>
+        <header>
+          <h2>your bag</h2>
+          <h4 class='empty-cart'>is currently empty</h4>
+        </header>
+      </section>
+</ng-container>
+<ng-template #tabContent>
+    <section class='cart'>
+        <header>
+          <h2>your bag</h2>
+        </header>
+        <div>
+            <app-cart-item *ngFor="let item of state().cart" [item]="item"></app-cart-item>
+        </div>
+        <footer>
+          <hr />
+          <div class='cart-total'>
+            <h4>
+              total <span>{{total()}}</span>
+            </h4>
+          </div>
+          <button class='btn clear-btn' (click)="clearCart()">
+            clear cart
+          </button>
+        </footer>
+      </section>
+</ng-template>

@@ -1,0 +1,10 @@
+<main>
+    <button (click)="openSidebar()" class='sidebar-toggle'>
+        <fa-icon [icon]="faBars"></fa-icon>
+    </button>
+    <button (click)="openModal()" class='btn'>
+      show modal
+    </button>
+  </main>
+  <app-modal />
+  <app-sidebar />

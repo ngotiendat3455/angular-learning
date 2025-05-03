@@ -1,0 +1,10 @@
+<div className="btn-container">
+    <button 
+        *ngFor="let category of categories"
+        type="button"
+        className="filter-btn"
+        (click)="filterItem(category)"
+        >
+        {{category}}
+    </button>
+</div>

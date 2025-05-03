@@ -1,0 +1,22 @@
+<section class="section">
+    <div class="title">
+      <h2>
+        <span>/</span>reviews
+      </h2>
+    </div>
+    <div class="section-center">
+      <article *ngFor="let peo of people; let i = index" [attr.key]="peo.id" [ngClass]="getSlideClass(i)">
+        <img [src]="peo.image" [alt]="peo.name" class="person-img" />
+        <h4>{{ peo.name }}</h4>
+        <p class="title">{{ peo.title }}</p>
+        <p class="text">{{ peo.quote}}</p>
+        <fa-icon [icon]="faQuoteRight"></fa-icon>
+      </article>
+      <button class="prev" (click)="prevSlide()">
+        <fa-icon [icon]="faChevronLeft"></fa-icon>
+      </button>
+      <button class="next" (click)="nextSlide()">
+        <fa-icon [icon]="faChevronRight"></fa-icon>
+      </button>
+    </div>
+  </section>

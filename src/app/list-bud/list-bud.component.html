@@ -1,0 +1,21 @@
+<div className='grocery-list'>
+    <article *ngFor="let item of items" class='grocery-item' [attr.key]="item.id" >
+        <p class='title'>{{item.title}}</p>
+        <div class='btn-container'>
+          <button
+            type='button'
+            class='edit-btn'
+            (click)="editItem(item.id)"
+          >
+            <fa-icon [icon]="faEdit"></fa-icon>
+          </button>
+          <button
+            type='button'
+            className='delete-btn'
+            (click)="deleteItem(item.id)"
+          >
+            <fa-icon [icon]="faTrash"></fa-icon>
+          </button>
+        </div>
+      </article>
+</div>

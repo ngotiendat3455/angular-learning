@@ -1,0 +1,25 @@
+<section class='section-center'>
+    <form class='grocery-form' (ngSubmit)="handleSubmit()">
+      <h3>grocery bud</h3>
+      <div class='form-control'>
+        <input
+          type='text'
+          class='grocery'
+          name="groceryName"
+          placeholder='e.g. eggs'
+          [(ngModel)]="name"
+        />
+        <button type='submit' class='submit-btn'>
+          {{ isEditing ? 'edit' : 'submit' }}
+        </button>
+      </div>
+    </form>
+    <ng-container *ngIf="list.length > 0">
+        <div class='grocery-container'>
+            <app-list-bud [items]="list" (removeEvent)="deleteItem($event)" (editEvent)="editItem($event)" />
+            <button class='clear-btn' (click)="clearList()">
+              clear items
+            </button>
+          </div>
+    </ng-container>
+  </section>

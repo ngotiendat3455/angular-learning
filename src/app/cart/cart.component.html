@@ -1,0 +1,11 @@
+<ng-container *ngIf="state().loading; else cartContent">
+    <div class='loading'>
+        <h1>Loading...</h1>
+      </div>
+</ng-container>
+<ng-template #cartContent>
+    <main>
+        <app-navbar-cart></app-navbar-cart>
+        <app-cart-container></app-cart-container>
+      </main>
+</ng-template>

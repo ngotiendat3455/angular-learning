@@ -1,0 +1,7 @@
+<main>
+    <section className='container'>
+      <h3>{{people.length}} birthdays today</h3>
+      <app-list-birthday [people]="people" />
+      <button (click)="clearPerson()">clear all</button>
+    </section>
+  </main>

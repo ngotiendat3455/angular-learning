@@ -1,0 +1,13 @@
+<form [formGroup]="form">
+    <!-- Category dropdown -->
+    <div class="form-field">
+      <div class="form-field-label">Category {{ areQuizCategoriesLoading() ? '(loading...)': '' }}</div>
+      <qzm-quiz-autocomplete
+        data-testid="category-autocomplete"
+        [formControlName]="CATEGORY_FIELD"
+        [loading]="areQuizCategoriesLoading()"
+        [options]="quizCategories()"
+        placeholder="Enter a category"
+      />
+    </div>
+</form>

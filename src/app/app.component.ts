@@ -4,8 +4,8 @@ import { QuizMarkerService } from './quiz-marker.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
+  // standalone: true,
+  // imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

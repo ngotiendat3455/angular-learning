@@ -1,0 +1,20 @@
+<ng-container *ngIf="currentPage | async as pageData">
+    <aside 
+        class="submenu" 
+        [class.show]="isSubmenuOpen | async" 
+        [style.left.px]="(currentLocation | async)?.center"
+        [style.top.px]="(currentLocation | async)?.bottom">
+        <h4>{{pageData.page}}</h4>
+        <div [ngClass]="['submenu-header', columnClass]">
+            <div class="submenu-icons">
+                <ng-container *ngFor="let link of pageData.links; let i = index">
+                    <a [href]="link.url" [attr.data-index]="i">
+                        <ng-container *ngIf="link.icon">{{link.icon}}</ng-container>
+                        {{link.label}}
+                    </a>
+                </ng-container>
+            </div>
+
+        </div>
+    </aside>
+</ng-container>

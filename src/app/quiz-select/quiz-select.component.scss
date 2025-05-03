@@ -1,0 +1,66 @@
+// @use 'layout';
+
+$common-width: 16rem;
+
+.input {
+  background-color: white;
+  border: solid 3px;
+  cursor: default;
+  font-size: 1.1rem;
+  min-height: 1.5rem;
+  min-width: $common-width;
+  padding: 0.5rem;
+
+  &.disabled {
+    background-color: rgba(239, 239, 239, 0.3);
+    border-color: rgb(84, 84, 84);
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: solid 3px;
+  }
+
+  .text {
+    color: black;
+  }
+
+  .placeholder {
+    color: grey;
+  }
+}
+
+.options {
+  // @include layout.flex($direction: column);
+  background-color: var(--white);
+  border: solid 3px;
+  border-top: none;
+  max-height: calc(5 * 2.25rem);
+  min-width: $common-width;
+  overflow-y: scroll;
+  position: absolute;
+  scrollbar-width: none;
+  z-index: 2;
+
+  .option {
+    $option-padding: 0.5rem;
+
+    min-width: $common-width;
+    padding: $option-padding;
+    width: calc($common-width - $option-padding);
+
+    &:hover {
+      background-color: var(--purple);
+      cursor: pointer;
+    }
+
+    &:focus-visible {
+      background-color: var(--purple);
+      outline: none;
+    }
+
+    &.selected {
+      background-color: var(--purple);
+    }
+  }
+}

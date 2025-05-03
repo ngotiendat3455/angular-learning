@@ -1,0 +1,9 @@
+<article className='question'>
+    <header>
+      <h4>{{question.title}}</h4>
+      <button className='btn' (click)="setShowInfo()">
+        <fa-icon [icon]="showInfo ? aiOutlineMinus : aiOutlinePlus"></fa-icon>
+      </button>
+    </header>
+    <p *ngIf="showInfo">{{question.info}}</p>
+  </article>
