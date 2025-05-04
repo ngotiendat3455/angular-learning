@@ -1,0 +1,30 @@
+<section class='section cocktail-section'>
+    <a routerLink="/" class='btn btn-primary'>
+      back home
+    </a>
+    <h2 class='section-title'>{{cocktail?.name}}</h2>
+    <div class='drink'>
+      <img [src]="cocktail?.image" [alt]="cocktail?.name"/>
+      <div class='drink-info'>
+        <p>
+          <span class='drink-data'>name :</span> {{cocktail?.name}}
+        </p>
+        <p>
+          <span class='drink-data'>category :</span> {{cocktail?.category}}
+        </p>
+        <p>
+          <span class='drink-data'>info :</span> {{cocktail?.info}}
+        </p>
+        <p>
+          <span class='drink-data'>glass :</span> {{cocktail?.glass}}
+        </p>
+        <p>
+          <span class='drink-data'>instructons :</span> {{cocktail?.instructions}}
+        </p>
+        <p>
+          <span class='drink-data'>ingredients :</span>
+          <span *ngFor="let item of cocktail.ingredients; let i = index"> {{item}}</span>
+        </p>
+      </div>
+    </div>
+  </section>

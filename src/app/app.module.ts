@@ -12,6 +12,7 @@ import { CocktailListComponent } from './components/cocktail-list/cocktail-list.
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './components/loading/loading.component';
 import { CocktailComponent } from './components/cocktail/cocktail.component';
+import { SingleCocktailComponent } from './components/single-cocktail/single-cocktail.component';
 
 
 
@@ -25,7 +26,8 @@ import { CocktailComponent } from './components/cocktail/cocktail.component';
     SearchFormComponent,
     CocktailListComponent,
     LoadingComponent,
-    CocktailComponent
+    CocktailComponent,
+    SingleCocktailComponent,
   ],
   imports: [
     CommonModule,

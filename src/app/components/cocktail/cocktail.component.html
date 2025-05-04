@@ -6,6 +6,6 @@
       <h3>{{item.name}}</h3>
       <h4>{{item.glass}}</h4>
       <p>{{item.info}}</p>
-      <a class='btn btn-primary btn-details'>details</a>
+      <a [routerLink]="['/cocktail', item.id]" class='btn btn-primary btn-details'>details</a>
     </div>
   </article>
