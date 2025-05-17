@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { effect, Injectable, signal } from '@angular/core';
+import { debounceTime, from, Subject, switchMap, takeLast } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,24 +11,27 @@ export class CocktailService {
   cocktails = signal<any[]>([]);
   searchTerm = signal<string>('');
 
+  private searchTermSubject = new Subject<string>();
   constructor(private http:HttpClient) {
+    this.searchTermSubject.pipe(
+      debounceTime(300),
+    ).subscribe((term) => {
+      this.fetchDrinks(term); // Trigger the HTTP call
+    });
     effect(() => {
-      this.fetchDrinks(this.searchTerm())
+      this.searchTermSubject.next(this.searchTerm());
     }, {
       allowSignalWrites: true
-    })  
-  }
-
-  getLoading() {
-    return this.loading.asReadonly()
-  }
-
-  getCocktails() {
-    return this.cocktails.asReadonly()
+    })
+    // from(this.searchTerm()).pipe(
+    //   debounceTime(1000),
+    //   switchMap(term => this.fetchDrinks(term))
+    // ).subscribe();  
   }
   private fetchDrinks(term: string) {
     this.loading.set(true);
-    this.http.get<any>(this.url + term).subscribe({
+
+    return this.http.get<any>(this.url + term).subscribe({
       next: (data) => {
         const { drinks } = data;
         if (drinks) {
@@ -51,6 +55,14 @@ export class CocktailService {
       },
     })
 
+  }
+
+  getLoading() {
+    return this.loading.asReadonly()
+  }
+
+  getCocktails() {
+    return this.cocktails.asReadonly()
   }
 
   setSearchTerm(term: string) {

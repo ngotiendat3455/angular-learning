@@ -1,0 +1,32 @@
+<main>
+    <div class='section-title'>
+        <h1>{{loading ? 'loading...' : 'pagination'}}</h1>
+        <div class='underline'></div>
+    </div>
+    <section class='followers'>
+        <div class='container'>
+            <app-follower 
+                *ngFor="let item of followers"
+                [follow]="item"
+            /> 
+        </div>
+        <ng-container *ngIf="!loading">
+            <div class='btn-container'>
+                <button class='prev-btn' (click)="prevPage()">
+                  prev
+                </button>
+                <button 
+                    *ngFor="let item of data; index as i" 
+                    class="page-btn"
+                    [class.active-btn]="i === page"
+                    (click)="handlePage(i)"
+                >
+                    {{i + 1}}
+                </button>
+                <button class='next-btn' (click)="nextPage()">
+                  next
+                </button>
+              </div>
+        </ng-container>
+    </section>
+</main>

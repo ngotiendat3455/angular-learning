@@ -10,7 +10,7 @@ export const ROUTE_PATHS = Object.freeze({
 export const routes: Routes = [
   {
     path: ROUTE_PATHS.HOME,
-    loadComponent: () => import('./home/home.component').then(c => c.HomeComponent),
+    loadComponent: () => import("./pagination/pagination.component").then((c) => c.PaginationComponent)
   },
   {
     path: 'birthday',
@@ -55,6 +55,10 @@ export const routes: Routes = [
   {
     path: 'cart',
     loadComponent: () => import("./cart/cart.component").then((c) => c.CartComponent)
+  },
+  {
+    path: 'pagination',
+    loadComponent: () => import("./pagination/pagination.component").then((c) => c.PaginationComponent)
   },
   {
     path: '',
